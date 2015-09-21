@@ -12,10 +12,16 @@ t["lol so rand om xd"] = {
   string = "cool"
 }
 
-local nt = nettable2.wrap(t, "some_unique_name")
+local nt = nettable2.Wrap(t, "some_unique_name")
 -- full update is sent on subscription addition
-nt:AddSubscription(ply)
-nt:AddSubscription({ply table})
+nt:Subscribe(ply)
+nt:Subscribe({ply table})
+
+nt:HasSubscription(ply)
+
+nt:Unsubscribe(ply)
+
+-- pvs subscription should be possible as well
 
 -- autosubscription = table is autosent on connection (probs plyinitspawn hook)
 nt:SetAutoSubscription(true) -- all players
@@ -30,7 +36,7 @@ nt:Update()
 
 -- shouldnt have same nettable.get serverside mess anymore so this should be clientside
 -- getting the nettable auto-subscribes. __gc should unsubscribe
-local nt = nettable2.get("some_unique_name")
+local nt = nettable2.Get("some_unique_name")
 
 -- this is the reference that is to be kept up to date with server
 local t = nt.ref
