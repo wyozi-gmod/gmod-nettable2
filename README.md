@@ -75,6 +75,10 @@ end
 -- the 'meta' reference does not have to be the same client and server side
 nettable2.RegisterMetaTable("RadioStation", meta)
 
+-- Note: 2nd argument can also be a func (table -> Unit)
+-- Parameter table should be the raw nettable object. Function should initialize the table as the
+-- object it is trying to be (eg. set metatables, call constructors)
+
 if SERVER then
   local t = {}
   t.stations = {}
