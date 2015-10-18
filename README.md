@@ -44,6 +44,9 @@ end)
 nt:AttachMetatable() -- attaches a __newindex hook to base table. this should be only method modifying the base tbl
 
 nt:Update()
+
+-- Ent support:
+ent:SetNetTable("users", nt)
 ```
 ```lua
 -- CLIENT
